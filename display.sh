@@ -8,6 +8,16 @@ POS_C5="\033[0;100H"
 
 CURSOR_MVDOWN="\033[1B"
 
+fn_cursor_mvbystep() {
+	STRING=$1
+	ITERATION=0
+
+	while $[ITERATION}!=$2 
+	do
+	STRING+="${CURSOR_MVDOWN}"
+	done
+}
+
 fn_display() {	
 	COUNTRY=`cat data/test.csv | cut -d "," -f 1`
 	CURRENCY=`cat data/test.csv | cut -d "," -f 2`
@@ -31,6 +41,9 @@ fn_display() {
 	printf "${POS_C3}${CURSOR_MVDOWN}${NAME}"
 	printf "${POS_C4}${CURSOR_MVDOWN}${SYMBOL}"
 	printf "${POS_C5}${CURSOR_MVDOWN}${TYPE}"
+	
+	TEST=fn_cursor_mvbystep ${POS_C5} 2
+	printf "${TEST}Test Country"
 	echo " " 
 }
 
