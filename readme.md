@@ -16,3 +16,7 @@ Currently not available
 * curl
 * jq
 * dasel
+* awk
+
+## Future Dependencies
+* Ratpoison - Will be optional
